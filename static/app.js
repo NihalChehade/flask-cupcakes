@@ -21,7 +21,8 @@ function fill_cupcakes(cupcakes){
 
 $("#btn_add_cupcake").click(addCupcake);
 
-async function addCupcake(){
+async function addCupcake(e){
+    e.preventDefault();
     const flavor = $("#flavor").val();
     const size = $('#size').val();
     const rating = $('#rating').val();
@@ -37,9 +38,9 @@ async function addCupcake(){
     $('#size').val('');
     $('#rating').val('');
     $('#image').val('');
-
+    console.log(resp.data['cupcake'].flavor)
      const li =  $("<li></li>");
-       li.Text(flavor);
+       li.text(resp.data['cupcake'].flavor);
         $('ul').append(li);
 }
 
